@@ -1,0 +1,42 @@
+<div class="container">
+  <div class="category-header row shadow bg-main-light align-items-center mb-4 p-3 rounded">
+    <div class="col-md-3">
+      <img [src]="allData.image" alt="" class="img-fluid rounded" />
+    </div>
+    <div class="col-md-9">
+      <h3 class="text-main mb-0">{{ allData.name }}</h3>
+    </div>
+  </div>
+
+  <div class="row g-4">
+    <div class="col-xl-3 col-lg-4 col-md-6" *ngFor="let item of productsReltive">
+      <div class="product shadow-sm">
+        <div class="product-img position-relative overflow-hidden" [routerLink]="['/ditaels', item._id]">
+          <img 
+            [src]="item.imageCover"
+            [alt]="item.title"
+            [title]="item.title"
+            class="w-100 transition"
+            loading="lazy"
+          />
+        </div>
+        <div class="product-content p-3">
+          <span class="badge bg-main mb-2">{{item.category.name}}</span>
+          <h5 class="product-title text-truncate mb-3">{{item.title.split(" ",2).join(" ")}}</h5>
+          <div class="d-flex justify-content-between align-items-center mb-3">
+            <div class="price">
+              <span class="h5 text-main">{{item.price}} EGP</span>
+            </div>
+            <div class="rating">
+              <span class="me-1">{{item.ratingsAverage}}</span>
+              <i class="fa-solid fa-star rating-color"></i>
+            </div>
+          </div>
+          <button class="btn btn-main w-100" (click)="addProduct(item._id)">
+            <i class="fa-solid fa-cart-plus me-2"></i>Add To Cart
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

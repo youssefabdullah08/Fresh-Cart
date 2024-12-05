@@ -1,0 +1,10 @@
+<section class="my-5 py-5">
+    <h1>reset your password </h1>
+    <form [formGroup]="resetpass" (ngSubmit)="codereset()">
+        <div class="">
+            <label for="">enter your reset code </label>
+            <input type="tel" class="form-control" placeholder="resetCode" formControlName="resetCode">
+            <button  type="submit" [disabled]="resetpass.invalid" class="btn-main" >submit<i class="fa-solid fa-circle-notch fa-spin" *ngIf="isload"></i></button>
+        </div>
+        </form>
+</section>

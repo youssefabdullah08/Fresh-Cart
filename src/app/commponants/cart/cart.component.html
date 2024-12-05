@@ -1,0 +1,58 @@
+<section class="container py-4">
+  <div class="cart-content shadow rounded p-4" *ngIf="cartDetails; else empty">
+    <div class="d-flex justify-content-between align-items-center mb-4">
+      <div>
+        <h2 class="mb-2">Your Shopping Cart</h2>
+        <p class="text-main fs-5 mb-0">Total: {{cartDetails.totalCartPrice | currency:'EGP '}}</p>
+      </div>
+      <button class="btn btn-outline-danger" (click)="clearCart()">
+        <i class="fa-regular fa-trash-can me-2"></i>Clear Cart
+      </button>
+    </div>
+
+    <div class="cart-items">
+      <div class="cart-item border rounded p-3 mb-3" *ngFor="let item of cartDetails.products">
+        <div class="row align-items-center">
+          <div class="col-md-2">
+            <img [src]="item.product.imageCover" [alt]="item.product.title" class="img-fluid rounded">
+          </div>
+          <div class="col-md-7">
+            <h3 class="h5 mb-2">{{item.product.title}}</h3>
+            <p class="text-main mb-2">Price: {{item.price | currency:'EGP'}}</p>
+            <p class="text-main fw-bold mb-3">Total: {{item.count * item.price | currency:'EGP '}}</p>
+            <button class="btn btn-link text-danger p-0" (click)="removeItem(item.product._id)">
+              <i class="fa-regular fa-trash-can me-1"></i>Remove
+            </button>
+          </div>
+          <div class="col-md-3 text-end">
+            <div class="quantity-controls">
+              <button class="btn btn-outline-secondary" (click)="changeCount(item.product._id, item.count-1)">
+                <i class="fa-solid fa-minus"></i>
+              </button>
+              <span class="mx-3 fs-5">{{item.count}}</span>
+              <button class="btn btn-outline-secondary" (click)="changeCount(item.product._id, item.count+1)">
+                <i class="fa-solid fa-plus"></i>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="text-end mt-4">
+      <button class="btn btn-main btn-lg" [routerLink]="['/payment',cartDetails._id]">
+        Proceed to Payment <i class="fa-solid fa-arrow-right ms-2"></i>
+      </button>
+    </div>
+  </div>
+
+  <ng-template #empty>
+    <div class="text-center py-5">
+      <img src="./assets/preview.png" alt="Empty Cart" class="img-fluid mb-4" style="max-width: 300px;">
+      <h2 class="mb-3">Your Cart is Empty</h2>
+      <button class="btn btn-main" routerLink="/home">
+        <i class="fa-solid fa-cart-shopping me-2"></i>Start Shopping
+      </button>
+    </div>
+  </ng-template>
+</section>

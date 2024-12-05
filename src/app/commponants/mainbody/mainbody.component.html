@@ -1,0 +1,33 @@
+<section class="popular-products py-5">
+    <div class="container">
+        <h2 class="section-title mb-4">Popular Products</h2>
+        <div class="row g-4">
+            <div class="col-lg-3 col-md-4 col-sm-6" *ngFor="let item of allData.slice(22)">
+                <div class="product-card shadow-sm rounded">
+                    <div class="product-image position-relative" [routerLink]="['/ditaels',item._id]">
+                        <img [src]="item.imageCover" [alt]="item.title" class="img-fluid w-100" loading="lazy" [title]="item.title">
+                    </div>
+                    <div class="product-info p-3">
+                        <span class="category-badge mb-2 d-inline-block">{{item.category.name}}</span>
+                        <h3 class="product-title h6 mb-2">{{item.title.split(" ",2)}}</h3>
+                        <div class="d-flex justify-content-between align-items-center mb-3">
+                            <span class="price fw-bold">{{item.price}} LE</span>
+                            <div class="rating">
+                                <span class="rating-number">{{item.ratingsAverage}}</span>
+                                <i class="fa-solid fa-star text-warning ms-1"></i>
+                            </div>
+                        </div>
+                        <div class="product-actions d-flex flex-column gap-2">
+                            <button class="btn btn-outline-secondary w-100" (click)="addWishlist(item._id)">
+                                <i class="fa-solid fa-bookmark me-2"></i>Add to Wishlist
+                            </button>
+                            <button class="btn btn-main w-100" (click)="addProduct(item._id)">
+                                <i class="fa-solid fa-cart-plus me-2"></i>Add to Cart
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

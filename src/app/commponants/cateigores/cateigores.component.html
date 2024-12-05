@@ -1,0 +1,18 @@
+<div class="container py-4">
+    <div class="row g-4">
+        <div class="col-xl-3 col-lg-4 col-md-6" *ngFor="let item of allCate">
+            <div class="product cursor-pointer shadow-sm" [routerLink]="['/cateinfo',item._id]">
+                <div class="category-img position-relative overflow-hidden">
+                    <img [src]="item.image" 
+                         [alt]="item.name" 
+                         style="width: 300px; height: 300px; object-fit: contain;"
+                         class="transition"
+                         loading="lazy">
+                </div>
+                <div class="category-content p-3">
+                    <h5 class="text-center text-capitalize mb-0">{{item.name}}</h5>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

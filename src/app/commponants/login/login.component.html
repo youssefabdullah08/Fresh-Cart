@@ -1,0 +1,41 @@
+<div class="container py-5">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <div class="card shadow-sm bg-main-light">
+                <div class="card-body p-4">
+                    <h2 class="text-center mb-4 text-main">Login to Your Account</h2>
+                    <form [formGroup]="login" (ngSubmit)="getinit()">
+                        <div class="mb-3">
+                            <label for="email" class="form-label text-main">Email Address</label>
+                            <input type="email" class="form-control" id="email" formControlName="email" 
+                                   placeholder="Enter your email">
+                            <div class="alert alert-danger mt-2" *ngIf="login.get('email')?.touched && login.get('email')?.errors">
+                                <p class="mb-0 text-main" *ngIf="login.get('email')?.getError('email')">Please enter a valid email address</p>
+                                <p class="mb-0 text-main" *ngIf="login.get('email')?.getError('required')">Email is required</p>
+                            </div>
+                        </div>
+                        <div class="mb-4">
+                            <label for="password" class="form-label text-main">Password</label>
+                            <input type="password" class="form-control" id="password" formControlName="password"
+                                   placeholder="Enter your password">
+                            <div class="alert alert-danger mt-2" *ngIf="login.get('password')?.touched && login.get('password')?.errors">
+                                <p class="mb-0 text-main" *ngIf="login.get('password')?.getError('pattern')">Password must meet requirements</p>
+                                <p class="mb-0 text-main" *ngIf="login.get('password')?.getError('required')">Password is required</p>
+                            </div>
+                        </div>
+                        <div class="d-flex justify-content-between align-items-center">
+                            <button type="submit" [disabled]="login.invalid" 
+                                    class="btn-main text-white">
+                                Login <i class="fa-solid fa-right-to-bracket ms-2"></i>
+                            </button>
+                            <a routerLink="/forget" 
+                               class="text-decoration-none text-main">
+                               Forgot password?
+                            </a>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

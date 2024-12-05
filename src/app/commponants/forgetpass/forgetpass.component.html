@@ -1,0 +1,10 @@
+<section class="my-5 py-5">
+    <h1 class="text-main">reset your password </h1>
+    <form [formGroup]="resetpass" (ngSubmit)="forGet()">
+        <div class="mb-3">
+            <label for="email" class="form-label text-main">your email</label>
+            <input type="email" class="form-control" id="email" formControlName="email" placeholder="email">
+            <button  type="submit" [disabled]="resetpass.invalid" class="btn-main text-white mt-3">submit</button>
+        </div>
+    </form>
+</section>

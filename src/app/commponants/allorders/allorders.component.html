@@ -1,0 +1,37 @@
+<section class="container py-4">
+  <div class="text-center mb-4">
+    <div class="w-50 mx-auto">
+      <img src="./assets/1600w-l5R96oHsDo8.webp" alt="" class="img-fluid rounded shadow">
+    </div>
+  </div>
+
+  <div class="orders-section">
+    <h2 class="text-main mb-4">Your Order History</h2>
+    
+    <div class="order-card shadow-sm rounded mb-4" *ngFor="let item of allOrders">
+      <div class="row g-4 p-4">
+        <div class="col-md-3 col-sm-6" *ngFor="let prod of item.cartItems">
+          <div class="product-item text-center">
+            <div class="product-img mb-3">
+              <img [src]="prod.product.imageCover" 
+                   [alt]="prod.product.title" 
+                   class="img-fluid rounded"
+                   loading="lazy">
+            </div>
+            <h6 class="product-title text-truncate">{{prod.product.title}}</h6>
+          </div>
+        </div>
+      </div>
+      
+      <div class="order-total border-top p-3">
+        <h5 class="mb-0">Total: <span class="text-main">{{item.totalOrderPrice | currency:'l.e'}}</span></h5>
+      </div>
+    </div>
+
+    <div class="text-center">
+      <button class="btn btn-main px-4" routerLink="/home">
+        <i class="fa-solid fa-home me-2"></i>Back to Home
+      </button>
+    </div>
+  </div>
+</section>

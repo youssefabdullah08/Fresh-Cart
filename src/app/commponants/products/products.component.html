@@ -1,0 +1,45 @@
+<div class="container">
+    <div class="row g-4">
+        <div class="col-xl-3 col-lg-4 col-md-6" *ngFor="let item of allData">
+            <div class="product shadow-sm">
+                <div class="product-img position-relative overflow-hidden" [routerLink]="['/ditaels',item._id]">
+                    <img [src]="item.imageCover" 
+                         [alt]="item.title"
+                         [title]="item.title"
+                         class="w-100 transition" 
+                         loading="lazy">
+                </div>
+                <div class="product-content p-3">
+                    <span class="badge bg-main mb-2">{{item.category.name}}</span>
+                    <h5 class="product-title text-truncate mb-3">{{item.title.split(" ",2).join(" ")}}</h5>
+                    <div class="d-flex justify-content-between align-items-center mb-3">
+                        <div class="price">
+                            <span class="h5 text-main">{{item.price}} EGP</span>
+                        </div>
+                        <div class="rating">
+                            <span class="me-1">{{item.ratingsAverage}}</span>
+                            <i class="fa-solid fa-star rating-color"></i>
+                        </div>
+                    </div>
+                    <div class="product-actions d-flex gap-2">
+                        <button class="btn btn-outline-secondary flex-grow-1" (click)="addWishlist(item._id)">
+                            <i class="fa-solid fa-bookmark me-2"></i>Wishlist
+                        </button>
+                        <button class="btn btn-main flex-grow-1" (click)="addProduct(item._id)">
+                            <i class="fa-solid fa-cart-plus me-2"></i>Cart
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="d-flex justify-content-between mt-5">
+        <button class="btn btn-main px-4" (click)="getallprodacts()">
+            <i class="fa-solid fa-chevron-left me-2"></i>Previous
+        </button>
+        <button class="btn btn-main px-4" (click)="getP2()">
+            Next<i class="fa-solid fa-chevron-right ms-2"></i>
+        </button>
+    </div>
+</div>
