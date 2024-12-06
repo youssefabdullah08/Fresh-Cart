@@ -7,5 +7,17 @@ import { Router } from '@angular/router';
   styleUrls: ['./auth-nav.component.css']
 })
 export class AuthNavComponent {
+  isDarkTheme: boolean = false;
 
+constructor() {
+  const savedTheme = localStorage.getItem('theme');
+  this.isDarkTheme = savedTheme === 'dark';
+  document.body.setAttribute('data-theme', this.isDarkTheme ? 'dark' : 'light');
+  
+}
+toggleTheme() {
+  this.isDarkTheme = !this.isDarkTheme;
+  document.body.setAttribute('data-theme', this.isDarkTheme ? 'dark' : 'light');
+  localStorage.setItem('theme', this.isDarkTheme ? 'dark' : 'light');
+}
 }
