@@ -16,20 +16,21 @@ export class AuthapiService {
 signup(opj:object):Observable<any>{
   return this._authapi.post(`https://ecommerce.routemisr.com/api/v1/auth/signup ,opj)
 }
-login(data:any):Observable <any>{
-   return this._authapi.post(`https://ecommerce.routemisr.com/api/v1/auth/signin`,data)
+
+login(data: any): Observable<any> {
+  return this._authapi.post('https://ecommerce.routemisr.com/api/v1/auth/signin', data);
 }
 
-
-forgetPass(mail:any):Observable <any>{
-  return this._authapi.post(`https://ecommerce.routemisr.com/api/v1/auth/forgotPasswords`, mail)
+forgetPass(mail: any): Observable<any> {
+  return this._authapi.post('https://ecommerce.routemisr.com/api/v1/auth/forgotPasswords', mail);
 }
-resetPass(code:any):Observable <any>{
-  return this._authapi.post(`https://ecommerce.routemisr.com/api/v1/auth/verifyResetCode
-  `, code)}
+resetPass(code: any): Observable<any> {
+  return this._authapi.post('https://ecommerce.routemisr.com/api/v1/auth/verifyResetCode', code);
+}
 
-  newpass(data:any):Observable <any>{
-    return this._authapi.put(`https://ecommerce.routemisr.com/api/v1/auth/resetPassword`, data)}
+newpass(data: any): Observable<any> {
+  return this._authapi.put('https://ecommerce.routemisr.com/api/v1/auth/resetPassword', data);
+}
   
   
   }
