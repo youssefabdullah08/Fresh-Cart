@@ -14,7 +14,7 @@ export class AuthapiService {
   }
 
 signup(opj:object):Observable<any>{
-  return this._authapi.post(`https://ecommerce.routemisr.com/api/v1/auth/signin`,opj)
+  return this._authapi.post(`https://ecommerce.routemisr.com/api/v1/auth/signup ,opj)
 }
 login(data:any):Observable <any>{
    return this._authapi.post(`https://ecommerce.routemisr.com/api/v1/auth/signin`,data)
