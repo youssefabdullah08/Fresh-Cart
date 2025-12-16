@@ -1,3 +1,23 @@
-i{
+i {
     padding: .3125rem;
+    transition: transform 0.2s;
+}
+
+i:hover {
+    transform: scale(1.1);
+}
+
+.badge {
+    animation: pop 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    font-size: 0.65rem;
+    padding: 0.35em 0.65em;
+}
+
+@keyframes pop {
+    0% {
+        transform: translate(-50%, -50%) scale(0);
+    }
+    100% {
+        transform: translate(-50%, -50%) scale(1);
+    }
 }

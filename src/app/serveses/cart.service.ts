@@ -1,13 +1,14 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
-import { BehaviorSubject, Observable } from 'rxjs';
+import { BehaviorSubject, Observable, tap } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
 })
 export class CartService {
-  constructor(private _cartApi: HttpClient) {}
+  constructor(private _cartApi: HttpClient) { }
   public cartCountSubject = new BehaviorSubject<number>(0);
+  public wishlistCountSubject = new BehaviorSubject<number>(0);
 
   eToken: any = localStorage.getItem('token');
 
@@ -22,6 +23,12 @@ export class CartService {
           token: this.eToken,
         },
       }
+    ).pipe(
+      tap((res: any) => {
+        if (res && res.numOfCartItems !== undefined) {
+          this.cartCountSubject.next(res.numOfCartItems);
+        }
+      })
     );
   }
 
@@ -30,7 +37,13 @@ export class CartService {
       headers: {
         token: this.eToken,
       },
-    });
+    }).pipe(
+      tap((res: any) => {
+        if (res && res.numOfCartItems !== undefined) {
+          this.cartCountSubject.next(res.numOfCartItems);
+        }
+      })
+    );
   }
 
   REMOVECartPrud(id: any): Observable<any> {
@@ -41,6 +54,12 @@ export class CartService {
           token: this.eToken,
         },
       }
+    ).pipe(
+      tap((res: any) => {
+        if (res && res.numOfCartItems !== undefined) {
+          this.cartCountSubject.next(res.numOfCartItems);
+        }
+      })
     );
   }
   changeCount(id: string, count: number): Observable<any> {
@@ -52,6 +71,12 @@ export class CartService {
           token: this.eToken,
         },
       }
+    ).pipe(
+      tap((res: any) => {
+        if (res && res.numOfCartItems !== undefined) {
+          this.cartCountSubject.next(res.numOfCartItems);
+        }
+      })
     );
   }
 
@@ -60,7 +85,11 @@ export class CartService {
       headers: {
         token: this.eToken,
       },
-    });
+    }).pipe(
+      tap((res: any) => {
+        this.cartCountSubject.next(0);
+      })
+    );
   }
 
   addToWishlist(id: any): Observable<any> {
@@ -72,6 +101,12 @@ export class CartService {
       {
         headers: { token: this.eToken },
       }
+    ).pipe(
+      tap((res: any) => {
+        if (res && res.data) {
+          this.wishlistCountSubject.next(res.data.length);
+        }
+      })
     );
   }
   getWishlist(): Observable<any> {
@@ -81,6 +116,14 @@ export class CartService {
       {
         headers: { token: this.eToken },
       }
+    ).pipe(
+      tap((res: any) => {
+        if (res && res.count !== undefined) {
+          this.wishlistCountSubject.next(res.count);
+        } else if (res && res.data) {
+          this.wishlistCountSubject.next(res.data.length);
+        }
+      })
     );
   }
 }
