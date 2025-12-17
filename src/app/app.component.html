@@ -1,9 +1,4 @@
 <router-outlet></router-outlet>
-<ngx-spinner
-  bdColor="rgba(0, 0, 12, 0.8)"
-  size="medium"
-  color="#fff"
-  type="ball-rotate"
-  [fullScreen]="true"
-  ><p style="color: white">Loading...</p></ngx-spinner
->
+<ngx-spinner [bdColor]="spinnerBdColor" size="medium" [color]="spinnerColor" type="ball-rotate" [fullScreen]="true">
+  <p [style.color]="spinnerColor">Loading...</p>
+</ngx-spinner>

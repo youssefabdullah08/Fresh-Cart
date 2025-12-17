@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { Router } from '@angular/router';
+import { ThemeService } from 'src/app/serveses/theme.service';
 
 @Component({
   selector: 'app-auth-nav',
@@ -9,15 +9,13 @@ import { Router } from '@angular/router';
 export class AuthNavComponent {
   isDarkTheme: boolean = false;
 
-constructor() {
-  const savedTheme = localStorage.getItem('theme');
-  this.isDarkTheme = savedTheme === 'dark';
-  document.body.setAttribute('data-theme', this.isDarkTheme ? 'dark' : 'light');
-  
-}
-toggleTheme() {
-  this.isDarkTheme = !this.isDarkTheme;
-  document.body.setAttribute('data-theme', this.isDarkTheme ? 'dark' : 'light');
-  localStorage.setItem('theme', this.isDarkTheme ? 'dark' : 'light');
-}
+  constructor(private _themeService: ThemeService) {
+    this._themeService.theme$.subscribe(theme => {
+      this.isDarkTheme = theme === 'dark';
+    });
+  }
+
+  toggleTheme() {
+    this._themeService.toggleTheme();
+  }
 }
