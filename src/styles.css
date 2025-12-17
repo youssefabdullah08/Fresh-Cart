@@ -189,3 +189,19 @@ a:hover {
 [data-theme="dark"] .hover-text-main:hover {
   color: var(--dark-highlight) !important;
 }
+
+/* Global Section Title */
+.section-title {
+  font-size: 1.5rem;
+  font-weight: bold;
+  position: relative;
+  padding-left: 1rem;
+  border-left: 4px solid var(--main-color);
+  color: #212529;
+  /* Bootstrap gray-900 */
+}
+
+/* Dark Mode Support for Section Title */
+[data-theme="dark"] .section-title {
+  color: #f8fafc !important;
+}

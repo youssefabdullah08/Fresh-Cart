@@ -1,15 +1,78 @@
-<div class="row g-0 mb-3">
-    <div class="col-md-8">
-        <owl-carousel-o [options]="customOptions">
-            <ng-template carouselSlide> <img class="w-100" src="./assets/main-slider-1.jpeg" alt=""></ng-template>  
-            <ng-template carouselSlide> <img class="w-100" src="./assets/main-slider-2.jpeg" alt=""></ng-template>  
-            <ng-template carouselSlide> <img class="w-100" src="./assets/main-slider-3.jpeg" alt=""></ng-template>  
-          </owl-carousel-o>
-        
+<div class="row g-4 mb-4">
+    <div class="col-lg-9">
+        <owl-carousel-o [options]="customOptions" class="main-slider">
+            <ng-template carouselSlide>
+                <div class="slider-item">
+                    <img class="w-100 rounded-4 slider-img"
+                        src="https://images.unsplash.com/photo-1542838132-92c53300491e?auto=format&fit=crop&w=1600&q=80"
+                        alt="Fresh Vegetables">
+                    <div class="slider-content glass-effect">
+                        <span class="badge bg-warning text-dark mb-3 px-3 py-2 rounded-pill">Exclusive Offer</span>
+                        <h2 class="display-5 fw-bold text-dark mb-3">Fresh Organic <br> <span
+                                class="text-success">Vegetables</span></h2>
+                        <p class="lead text-dark mb-4">Get 20% off on your first order. <br> Farm fresh to your table.
+                        </p>
+                        <button class="btn btn-success btn-lg rounded-pill px-5 fw-bold shadow-sm">Shop Now <i
+                                class="fa-solid fa-arrow-right ms-2"></i></button>
+                    </div>
+                </div>
+            </ng-template>
+            <ng-template carouselSlide>
+                <div class="slider-item">
+                    <img class="w-100 rounded-4 slider-img"
+                        src="https://images.unsplash.com/photo-1583258292688-d0213dc5a3a8?auto=format&fit=crop&w=1600&q=80"
+                        alt="Grocery Delivery">
+                    <div class="slider-content glass-effect">
+                        <span class="badge bg-danger text-white mb-3 px-3 py-2 rounded-pill">Free Delivery</span>
+                        <h2 class="display-5 fw-bold text-dark mb-3">Fast Delivery <br> <span class="text-danger">To
+                                Your Door</span></h2>
+                        <p class="lead text-dark mb-4">Freshness guaranteed. <br> We deliver happiness.</p>
+                        <button class="btn btn-danger btn-lg rounded-pill px-5 fw-bold shadow-sm">Order Now <i
+                                class="fa-solid fa-arrow-right ms-2"></i></button>
+                    </div>
+                </div>
+            </ng-template>
+            <ng-template carouselSlide>
+                <div class="slider-item">
+                    <img class="w-100 rounded-4 slider-img"
+                        src="https://images.unsplash.com/photo-1509440159596-0249088772ff?auto=format&fit=crop&w=1600&q=80"
+                        alt="Fresh Bakery">
+                    <div class="slider-content glass-effect">
+                        <span class="badge bg-primary text-white mb-3 px-3 py-2 rounded-pill">Daily Fresh</span>
+                        <h2 class="display-5 fw-bold text-dark mb-3">Baked with Love <br> <span
+                                class="text-primary">Every Morning</span></h2>
+                        <p class="lead text-dark mb-4">Crispy, warm, and delicious. <br> Start your day right.</p>
+                        <button class="btn btn-primary btn-lg rounded-pill px-5 fw-bold shadow-sm">View Bakery <i
+                                class="fa-solid fa-arrow-right ms-2"></i></button>
+                    </div>
+                </div>
+            </ng-template>
+        </owl-carousel-o>
     </div>
-    <div class="col-md-4">
-        <img class="w-100" src="./assets/main-slider-2.jpeg" alt="">
-        <img class="w-100" src="./assets/main-slider-1.jpeg" alt="">
-
+    <div class="col-lg-3 d-none d-lg-block">
+        <div class="d-flex flex-column gap-4 h-100">
+            <div class="side-banner position-relative rounded-4 overflow-hidden flex-grow-1 shadow-sm">
+                <!-- Using local asset slide-1 for side banner -->
+                <img class="w-100 h-100 object-fit-cover" src="./assets/slide-1.jpeg" alt="Fresh Juice">
+                <div class="banner-overlay p-4 d-flex flex-column justify-content-end align-items-start">
+                    <div class="glass-mini p-3 rounded-3">
+                        <h5 class="fw-bold text-dark mb-1">Fresh Juices</h5>
+                        <p class="text-muted small mb-0">100% Natural & Pure</p>
+                    </div>
+                    <a href="#" class="stretched-link"></a>
+                </div>
+            </div>
+            <div class="side-banner position-relative rounded-4 overflow-hidden flex-grow-1 shadow-sm">
+                <!-- Using local asset slide-2 for side banner -->
+                <img class="w-100 h-100 object-fit-cover" src="./assets/slide-2.jpeg" alt="Healthy Snacks">
+                <div class="banner-overlay p-4 d-flex flex-column justify-content-end align-items-start">
+                    <div class="glass-mini p-3 rounded-3">
+                        <h5 class="fw-bold text-dark mb-1">Super Foods</h5>
+                        <p class="text-muted small mb-0">Boost your immunity</p>
+                    </div>
+                    <a href="#" class="stretched-link"></a>
+                </div>
+            </div>
+        </div>
     </div>
 </div>
