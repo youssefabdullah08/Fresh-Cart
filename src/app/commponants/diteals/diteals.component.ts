@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { OwlOptions } from 'ngx-owl-carousel-o';
 import { ToastrService } from 'ngx-toastr';
 import { BlankapiService } from 'src/app/serveses/blankapi.service';
@@ -11,42 +11,36 @@ import { CartService } from 'src/app/serveses/cart.service';
   styleUrls: ['./diteals.component.css']
 })
 export class DitealsComponent {
-  constructor(private _activelink:ActivatedRoute , private _getspi:BlankapiService,private _add:CartService,private toastr:ToastrService){}
-proid:number=0
-allDataSPI:any=[]
-imgL:number[]=[]
-ngOnInit(){
-  this.getId()
-  this.getall()
-}
-  getId(){
+  constructor(private _activelink: ActivatedRoute, private _getspi: BlankapiService, private _add: CartService, private toastr: ToastrService, private _router: Router) { }
+  proid: number = 0
+  allDataSPI: any = []
+  imgL: number[] = []
+  ngOnInit() {
+    this.getId()
+    this.getall()
+  }
+  getId() {
     this._activelink.paramMap.subscribe({
-      next:(pram:any)=>{
-       this.proid=pram.params.id
-        
+      next: (pram: any) => {
+        this.proid = pram.params.id
       },
-      error:(err)=>{
+      error: (err) => {
         console.log(err);
-        
       }
     })
   }
 
-  getall(){
+  getall() {
     this._getspi.getditails(this.proid).subscribe({
-      next:(res)=>{
-      this.allDataSPI=res.data
-       this.imgL=this.allDataSPI.images 
+      next: (res) => {
+        this.allDataSPI = res.data
+        this.imgL = this.allDataSPI.images
       },
-      error:(err)=>{
+      error: (err) => {
         console.log(err);
-        
       }
     })
   }
-
-
-
 
   customOptions: OwlOptions = {
     loop: true,
@@ -71,21 +65,24 @@ ngOnInit(){
       }
     },
     nav: false,
-    autoplay:true
+    autoplay: true
   }
 
-
-  addProduct(id:string){
-    this._add.addProduct(id).subscribe({
-      next:(res)=>{
-        this.toastr.success(res.message);
-        console.log(res);
-      },
-      error:(err)=>{
-        console.log(err);
-        this.toastr.error(err.message)
-      }
-    })
+  addProduct(id: string) {
+    if (localStorage.getItem('token')) {
+      this._add.addProduct(id).subscribe({
+        next: (res) => {
+          this.toastr.success(res.message);
+          console.log(res);
+        },
+        error: (err) => {
+          console.log(err);
+          this.toastr.error(err.message)
+        }
+      })
+    } else {
+      this._router.navigate(['/login']);
     }
+  }
 
 }

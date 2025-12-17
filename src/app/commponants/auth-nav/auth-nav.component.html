@@ -1,19 +1,12 @@
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
+<nav class="navbar navbar-expand-lg navbar-light glass-effect">
     <div class="container-fluid">
         <a class="navbar-brand" href="#">
             <img src="./assets/freshcart-logo.svg" alt="FreshCart Logo" class="img-fluid" style="max-width: 150px;">
         </a>
-        <button
-            class="navbar-toggler"
-            type="button"
-            data-bs-toggle="collapse"
-            data-bs-target="#navbarContent"
-            aria-controls="navbarContent"
-            aria-expanded="false"
-            aria-label="Toggle navigation"
-        >
-        <i class="fa-solid fa-bars"></i>
-    </button>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarContent"
+            aria-controls="navbarContent" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="fa-solid fa-bars"></i>
+        </button>
         <div class="collapse navbar-collapse" id="navbarContent">
             <ul class="navbar-nav ms-auto mb-2 mb-lg-0 d-flex align-items-center">
                 <li class="nav-item">
@@ -24,11 +17,8 @@
                 </li>
                 <li class="nav-item d-flex  px-2">
                     <button class="btn nav-link" (click)="toggleTheme()">
-                        <i
-                          class="fa-solid"
-                          [ngClass]="{ 'fa-sun': isDarkTheme, 'fa-moon': !isDarkTheme }"
-                        ></i>
-                      </button>
+                        <i class="fa-solid" [ngClass]="{ 'fa-sun': isDarkTheme, 'fa-moon': !isDarkTheme }"></i>
+                    </button>
                     <a href="" class="nav-link">
                         <i class="fa-brands fa-facebook fa-lg"></i>
                     </a>
@@ -42,8 +32,8 @@
                         <i class="fa-brands fa-linkedin fa-lg"></i>
                     </a>
                 </li>
-              
-             
+
+
             </ul>
         </div>
     </div>

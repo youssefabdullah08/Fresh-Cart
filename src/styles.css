@@ -9,14 +9,24 @@
     rgba(145, 158, 171, 0.12) 0px 1px 10px 0px;
   --font-family: "Encode Sans Expanded", sans-serif;
   --rating-color: #ffc908;
-  --dark-bg: #1a1a1a;
-  --dark-text: #ffffff;
-  --dark-secondary: #333333;
-  --dark-border: #404040;
+  --dark-bg: #0f172a;
+  --dark-text: #f8fafc;
+  --dark-secondary: #1e293b;
+  --dark-border: #334155;
+  --dark-highlight: #38bdf8;
+}
+
+.glass-effect {
+  background: rgba(255, 255, 255, 0.95) !important;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
 }
 
 body {
   font-family: var(--font-family) !important;
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 [data-theme="dark"] {
@@ -24,18 +34,57 @@ body {
   color: var(--dark-text);
 }
 
+[data-theme="dark"] .glass-effect {
+  background: rgba(30, 41, 59, 0.9) !important;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.2);
+}
+
+[data-theme="dark"] .bg-dark {
+  background-color: var(--dark-secondary) !important;
+}
+
+[data-theme="dark"] .text-light {
+  color: var(--dark-text) !important;
+}
+
 [data-theme="dark"] .nav-link {
   color: var(--dark-text);
 }
-[data-theme="dark"] .fa-bars{
-  color: var(--dark-text) !important;
 
+[data-theme="dark"] .fa-bars {
+  color: var(--dark-text) !important;
 }
+
+[data-theme="dark"] .navbar-brand {
+  color: var(--dark-text) !important;
+}
+
 [data-theme="dark"] .navbar {
   background-color: var(--dark-secondary) !important;
+  border-bottom: 1px solid var(--dark-border);
 }
+
 [data-theme="dark"] .text-main {
-  color: var(--dark-text) !important;
+  color: var(--dark-highlight) !important;
+}
+
+[data-theme="dark"] .form-control {
+  background-color: var(--dark-secondary);
+  border-color: var(--dark-border);
+  color: var(--dark-text);
+}
+
+[data-theme="dark"] .form-control:focus {
+  background-color: var(--dark-secondary);
+  border-color: var(--dark-highlight);
+  color: var(--dark-text);
+  box-shadow: 0 0 0 0.25rem rgba(56, 189, 248, 0.25);
+}
+
+[data-theme="dark"] .form-control::placeholder {
+  color: #94a3b8;
+  /* Slate-400 */
 }
 
 .nav-link {
@@ -123,4 +172,20 @@ a:hover {
 
 .btn-main:hover {
   background-color: #5FB8E0;
+}
+
+[data-theme="dark"] .text-muted {
+  color: #94a3b8 !important;
+}
+
+.hover-text-main {
+  transition: color 0.3s;
+}
+
+.hover-text-main:hover {
+  color: var(--main-color) !important;
+}
+
+[data-theme="dark"] .hover-text-main:hover {
+  color: var(--dark-highlight) !important;
 }

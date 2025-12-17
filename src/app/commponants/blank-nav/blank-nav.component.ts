@@ -12,7 +12,7 @@ export class BlankNavComponent {
   isDarkTheme: boolean = false;
   itemsCount: number = 0;
   wishListCount: number = 0;
-
+  isLogedIn: boolean = localStorage.getItem('token') ? true : false;
   ngOnInit() {
     this._cart.cartCountSubject.subscribe(value => {
       this.itemsCount = value;

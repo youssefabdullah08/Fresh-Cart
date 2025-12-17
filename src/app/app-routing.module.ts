@@ -22,32 +22,36 @@ import { ForgetpassComponent } from './commponants/forgetpass/forgetpass.compone
 import { ResetcodeComponent } from './commponants/resetcode/resetcode.component';
 
 const routes: Routes = [
-  {path:"",redirectTo:"signup",pathMatch:"full"},
-  {path:"",component:AuthLayoutComponent,children:[
-    {path:"signup",component:SignupComponent},
-    {path:"login",component:LoginComponent},
-    {path:"forget",component:ForgetpassComponent},
-    {path:"resetcode",component:ResetcodeComponent},
-{path:"newpass",component:NewpassComponent}
-  ]},
-  {path:"", canActivate:[authGuard],component:BlankLayoutComponent,children:[
-  {path:"home",component:HomeComponent},
-  {path:"cart",component:CartComponent},
-  {path:"ditaels/:id",component:DitealsComponent},
-  {path:"cate",component:CateigoresComponent},
-{path:"brands",component:BrandsComponent},
-{path:"products",component:ProductsComponent},
-{path:"brandinfo/:id",component:BrandinfoComponent},
-    {path:"cateinfo/:id",component:CateinfoComponent},
-    {path:"payment/:id",component:PaymentComponent},
-    {path:"allorders",component:AllordersComponent},
-    {path:"wishlist",component:WishlistComponent}
-  ]},
-  {path:'**', component:Err404Component}
+  { path: "", redirectTo: "home", pathMatch: "full" },
+  {
+    path: "", component: AuthLayoutComponent, children: [
+      { path: "signup", component: SignupComponent },
+      { path: "login", component: LoginComponent },
+      { path: "forget", component: ForgetpassComponent },
+      { path: "resetcode", component: ResetcodeComponent },
+      { path: "newpass", component: NewpassComponent }
+    ]
+  },
+  {
+    path: "", component: BlankLayoutComponent, children: [
+      { path: "home", component: HomeComponent },
+      { path: "cart", canActivate: [authGuard], component: CartComponent },
+      { path: "ditaels/:id", component: DitealsComponent },
+      { path: "cate", component: CateigoresComponent },
+      { path: "brands", component: BrandsComponent },
+      { path: "products", component: ProductsComponent },
+      { path: "brandinfo/:id", component: BrandinfoComponent },
+      { path: "cateinfo/:id", component: CateinfoComponent },
+      { path: "payment/:id", canActivate: [authGuard], component: PaymentComponent },
+      { path: "allorders", canActivate: [authGuard], component: AllordersComponent },
+      { path: "wishlist", canActivate: [authGuard], component: WishlistComponent }
+    ]
+  },
+  { path: '**', component: Err404Component }
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes,{scrollPositionRestoration:"top"})],
+  imports: [RouterModule.forRoot(routes, { scrollPositionRestoration: "top" })],
   exports: [RouterModule]
 })
 export class AppRoutingModule { }
