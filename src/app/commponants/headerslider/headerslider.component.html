@@ -1,9 +1,10 @@
 <div class="row g-4 mb-4">
-    <div class="col-lg-9">
+    <!-- Main Slider -->
+    <div class="col-12 col-lg-9">
         <owl-carousel-o [options]="customOptions" class="main-slider">
             <ng-template carouselSlide>
                 <div class="slider-item">
-                    <img class="w-100 rounded-4 slider-img"
+                    <img class="w-100 rounded-5 slider-img"
                         src="https://images.unsplash.com/photo-1542838132-92c53300491e?auto=format&fit=crop&w=1600&q=80"
                         alt="Fresh Vegetables">
                     <div class="slider-content glass-effect">
@@ -19,7 +20,7 @@
             </ng-template>
             <ng-template carouselSlide>
                 <div class="slider-item">
-                    <img class="w-100 rounded-4 slider-img"
+                    <img class="w-100 rounded-5 slider-img"
                         src="https://images.unsplash.com/photo-1583258292688-d0213dc5a3a8?auto=format&fit=crop&w=1600&q=80"
                         alt="Grocery Delivery">
                     <div class="slider-content glass-effect">
@@ -34,7 +35,7 @@
             </ng-template>
             <ng-template carouselSlide>
                 <div class="slider-item">
-                    <img class="w-100 rounded-4 slider-img"
+                    <img class="w-100 rounded-5 slider-img"
                         src="https://images.unsplash.com/photo-1509440159596-0249088772ff?auto=format&fit=crop&w=1600&q=80"
                         alt="Fresh Bakery">
                     <div class="slider-content glass-effect">
@@ -49,28 +50,34 @@
             </ng-template>
         </owl-carousel-o>
     </div>
-    <div class="col-lg-3 d-none d-lg-block">
-        <div class="d-flex flex-column gap-4 h-100">
-            <div class="side-banner position-relative rounded-4 overflow-hidden flex-grow-1 shadow-sm">
-                <!-- Using local asset slide-1 for side banner -->
-                <img class="w-100 h-100 object-fit-cover" src="./assets/slide-1.jpeg" alt="Fresh Juice">
-                <div class="banner-overlay p-4 d-flex flex-column justify-content-end align-items-start">
-                    <div class="glass-mini p-3 rounded-3">
-                        <h5 class="fw-bold text-dark mb-1">Fresh Juices</h5>
-                        <p class="text-muted small mb-0">100% Natural & Pure</p>
+
+    <!-- Side Banners - Vertical on Desktop, Horizontal on Mobile -->
+    <div class="col-12 col-lg-3">
+        <div class="row row-cols-2 row-cols-lg-1 g-3 g-lg-4 h-100">
+            <div class="col">
+                <div class="side-banner position-relative rounded-5 overflow-hidden h-100 shadow-sm">
+                    <!-- Using local asset slide-1 for side banner -->
+                    <img class="w-100 h-100 object-fit-cover" src="./assets/slide-1.jpeg" alt="Fresh Juice">
+                    <div class="banner-overlay p-3 p-lg-4 d-flex flex-column justify-content-end align-items-start">
+                        <div class="glass-mini p-2 p-lg-3 rounded-3">
+                            <h5 class="fw-bold text-dark mb-1">Fresh Juices</h5>
+                            <p class="text-muted small mb-0">100% Natural & Pure</p>
+                        </div>
+                        <a href="#" class="stretched-link"></a>
                     </div>
-                    <a href="#" class="stretched-link"></a>
                 </div>
             </div>
-            <div class="side-banner position-relative rounded-4 overflow-hidden flex-grow-1 shadow-sm">
-                <!-- Using local asset slide-2 for side banner -->
-                <img class="w-100 h-100 object-fit-cover" src="./assets/slide-2.jpeg" alt="Healthy Snacks">
-                <div class="banner-overlay p-4 d-flex flex-column justify-content-end align-items-start">
-                    <div class="glass-mini p-3 rounded-3">
-                        <h5 class="fw-bold text-dark mb-1">Super Foods</h5>
-                        <p class="text-muted small mb-0">Boost your immunity</p>
+            <div class="col">
+                <div class="side-banner position-relative rounded-4 overflow-hidden h-100 shadow-sm">
+                    <!-- Using local asset slide-2 for side banner -->
+                    <img class="w-100 h-100 object-fit-cover" src="./assets/slide-2.jpeg" alt="Healthy Snacks">
+                    <div class="banner-overlay p-3 p-lg-4 d-flex flex-column justify-content-end align-items-start">
+                        <div class="glass-mini p-2 p-lg-3 rounded-3">
+                            <h5 class="fw-bold text-dark mb-1">Super Foods</h5>
+                            <p class="text-muted small mb-0">Boost your immunity</p>
+                        </div>
+                        <a href="#" class="stretched-link"></a>
                     </div>
-                    <a href="#" class="stretched-link"></a>
                 </div>
             </div>
         </div>

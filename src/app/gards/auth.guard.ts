@@ -9,7 +9,7 @@ let router =inject(Router)
     return true;
   }
   else{
-    alert("you can't go to home after log in ")
+    alert("you can't make any action after log in ")
    router.navigate(['/login'])
    return false;
   }
