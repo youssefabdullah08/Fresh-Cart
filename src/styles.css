@@ -87,14 +87,88 @@ body {
   /* Slate-400 */
 }
 
+/* Enhanced Nav Link Styles */
 .nav-link {
-  transition: unset !important;
+  position: relative;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
+  border-radius: 8px;
+  padding: 0.5rem 1rem !important;
+  font-weight: 500;
+  overflow: hidden;
 }
 
+.nav-link::before {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  width: 0;
+  height: 2px;
+  background: linear-gradient(90deg, var(--main-color), #5FB8E0);
+  transform: translateX(-50%);
+  transition: width 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.nav-link:hover::before {
+  width: 80%;
+}
+
+.nav-link:hover {
+  transform: translateY(-2px);
+  color: var(--main-color) !important;
+}
+
+[data-theme="dark"] .nav-link:hover {
+  color: var(--dark-highlight) !important;
+}
+
+/* Enhanced Active Link Styles */
 .active-link {
-  background-color: var(--main-color) !important;
-  color: var(--light-color) !important;
-  border-radius: 5px;
+  background: linear-gradient(135deg, var(--main-color) 0%, #5FB8E0 100%) !important;
+  color: white !important;
+  border-radius: 8px;
+  box-shadow: 0 4px 15px rgba(65, 71, 112, 0.3);
+  transform: scale(1.05);
+  font-weight: 600;
+  animation: activeLink 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.active-link::before {
+  display: none;
+}
+
+.active-link::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.2) 0%, rgba(255, 255, 255, 0) 100%);
+  border-radius: 8px;
+  pointer-events: none;
+}
+
+[data-theme="dark"] .active-link {
+  background: linear-gradient(135deg, #38bdf8 0%, #0ea5e9 100%) !important;
+  box-shadow: 0 4px 20px rgba(56, 189, 248, 0.4), 0 0 30px rgba(56, 189, 248, 0.2);
+  color: var(--dark-bg) !important;
+}
+
+@keyframes activeLink {
+  0% {
+    transform: scale(0.95);
+    opacity: 0.8;
+  }
+
+  50% {
+    transform: scale(1.08);
+  }
+
+  100% {
+    transform: scale(1.05);
+    opacity: 1;
+  }
 }
 
 .rating-color {
